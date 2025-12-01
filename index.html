@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Crypto Clicker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="user-info">
+            <div class="avatar-small"></div>
+            <span id="username">User</span>
+        </div>
+    </div>
+
+    <div class="score-container">
+        <h1 id="score">0</h1>
+        <span class="currency-symbol">₣</span>
+    </div>
+
+    <div id="screen-home" class="screen active">
+        <div class="click-area">
+            <div class="main-circle" id="click-btn">
+                <div class="glow-effect"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="screen-tasks" class="screen">
+        <div class="grid-container">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </div>
+
+    <div id="screen-profile" class="screen">
+        <div class="profile-header">
+            <div class="avatar-large"></div>
+            <h2 id="profile-name">User Name</h2>
+            <p class="user-id">#123456789</p>
+        </div>
+        <div class="stats-card">
+            </div>
+    </div>
+
+    <div class="bottom-nav">
+        <button class="nav-btn active" onclick="switchTab('home')">
+            <i class="fa-solid fa-gamepad"></i>
+        </button>
+        <button class="nav-btn" onclick="switchTab('tasks')">
+            <i class="fa-solid fa-layer-group"></i> </button>
+        <button class="nav-btn" onclick="switchTab('profile')">
+            <i class="fa-solid fa-user"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

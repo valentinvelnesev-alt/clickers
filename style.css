@@ -1,0 +1,204 @@
+:root {
+    --bg-color: #1c1c1e;
+    --card-bg: #2c2c2e;
+    --accent-green: #4af2a1; /* Тот самый зеленый цвет */
+    --text-color: #ffffff;
+    --nav-bg: rgba(44, 44, 46, 0.8);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden; /* Чтобы не скроллилось лишнее */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-small {
+    width: 30px;
+    height: 30px;
+    background-color: #999;
+    border-radius: 50%;
+}
+
+/* Score */
+.score-container {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#score {
+    font-size: 48px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.currency-symbol {
+    font-size: 24px;
+    background: var(--accent-green);
+    color: #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Screens Logic */
+.screen {
+    display: none; /* Скрываем все экраны */
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 80px; /* Отступ под меню */
+    animation: fadeIn 0.3s ease;
+}
+
+.screen.active {
+    display: flex; /* Показываем активный */
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- HOME SCREEN (CLICKER) --- */
+.click-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+
+.main-circle {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--accent-green) 0%, rgba(74, 242, 161, 0.2) 70%, transparent 100%);
+    box-shadow: 0 0 60px var(--accent-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.1s;
+    -webkit-tap-highlight-color: transparent; /* Убирает синий квадрат на мобильных */
+}
+
+.main-circle:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 80px var(--accent-green);
+}
+
+/* --- TASKS SCREEN --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #888; /* Серый цвет как на макете */
+    height: 140px;
+    border-radius: 20px;
+    opacity: 0.7;
+    transition: 0.2s;
+}
+
+.card:hover {
+    opacity: 1;
+    border: 2px solid var(--accent-green);
+}
+
+/* --- PROFILE SCREEN --- */
+.profile-header {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.avatar-large {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+.user-id {
+    color: #666;
+    font-size: 12px;
+}
+
+.stats-card {
+    width: 90%;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%);
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+/* --- BOTTOM NAV --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 70px;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 35px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 24px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-btn.active {
+    color: #000;
+    background-color: var(--accent-green);
+    box-shadow: 0 0 15px var(--accent-green);
+}
